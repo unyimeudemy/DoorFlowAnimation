@@ -2,6 +2,9 @@ import styled from "styled-components";
 import YourHomeYourRules from "./components/YourHomeYourRules";
 import lampOn from "./images/lamp-on.webp"
 import lampOff from "./images/lamp-off.webp"
+import { useState } from "react";
+import { motion } from 'framer-motion';
+
 
 
 const Container = styled.div`
@@ -14,12 +17,12 @@ const Container = styled.div`
     justify-content: center;
 `
 
-const Lamp = styled.img`
+const Lamp = styled(motion.img)`
     width: 670px;
-    height: 670px;
+    height: 679px;
     position: absolute;
-    top: 500px;
-    left: 430px;
+    top: 520px;
+    left: 472px;
     z-index: 2;
 `
 
@@ -27,11 +30,15 @@ const Lamp = styled.img`
 
 
 const HomePage = () => {
+    const [lampState, setLampState] = useState(false)
+
+
     return (
         <Container>
-            {/* <Lamp src={lampOn}/> */}
-            <Lamp src={lampOn}/>
-            <YourHomeYourRules/>
+            {lampState ? <Lamp src={lampOn}/> : <Lamp src={lampOff}/>}
+            <YourHomeYourRules
+                setLampState={setLampState}
+            />
         </Container>
     )
 }

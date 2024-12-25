@@ -98,7 +98,7 @@ filter: invert(55%) sepia(85%) saturate(300%) hue-rotate(90deg) brightness(120%)
 
 
 
-const LampCardDetails = () => {
+const LampCardDetails = ({showCheckIcon_2}) => {
 
     return(
         <Container>
@@ -113,11 +113,11 @@ const LampCardDetails = () => {
                 <Action>Turn on</Action>
 
             </Text>
-            <IconContainer>
+            {showCheckIcon_2 &&  <IconContainer>
                 <IconWrapper>
                     <Icon src={checkIcon}/>
                 </IconWrapper>
-            </IconContainer>
+            </IconContainer>}
        </Container>
     )
 

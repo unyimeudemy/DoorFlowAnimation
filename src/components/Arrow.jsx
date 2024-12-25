@@ -1,8 +1,7 @@
-import { animate, motion } from "framer-motion";
+import { useAnimationControls, motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-// Styled component for the arrow container
 const ArrowContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@ const ArrowContainer = styled.div`
     height: 195px;
 `;
 
-// Styled component for the arrow line
 const ArrowLine = styled.div`
   position: relative;
   width: 2px;
@@ -20,8 +18,6 @@ const ArrowLine = styled.div`
   overflow: hidden;
 `;
 
-// #e6e6e6
-// background-color: #67b2e4; 
 
 
 const FillLine = styled(motion.div)`
@@ -35,7 +31,6 @@ const FillLine = styled(motion.div)`
 `;
 
 
-// Styled component for the arrowhead
 const ArrowHead = styled(motion.div)`
   width: 0;
   height: 0;
@@ -45,15 +40,14 @@ const ArrowHead = styled(motion.div)`
   margin-top: -1px;
 `;
 
-// border-top: 16px solid #67b2e4; 
 
+const Arrow = ({animateArrow}) => {
 
-const Arrow = () => {
   const fillLineVariants = {
-    initial: { scaleY: 0 }, // Start with no fill
+    initial: { scaleY: 0 }, 
     animate: {
-      scaleY: 1, // Fill to the full height
-      transition: { duration: 3, ease: "easeInOut" }, // Animation duration and easing
+      scaleY: 1,
+      transition: { duration: 2, ease: "easeInOut" }, 
     },
   };
 
@@ -61,24 +55,28 @@ const Arrow = () => {
     initial: { borderTopColor: "#e6e6e6" },
     animate: {
       borderTopColor: "#67b2e4",
-      transition: { delay: 3, duration: 1, ease: "easeInOut" },
+      transition: { delay: 2, duration: 0.7, ease: "easeInOut" },
     },
   };
+
+  // const arrowStart = () => {
+  //   animateArrow.start("animate")
+  // }
+
 
   return (
     <ArrowContainer>
       <ArrowLine>
-        {/* Animated fill line */}
         <FillLine
           variants={fillLineVariants}
           initial="initial"
-          animate="animate"
+          animate={animateArrow}
         />
       </ArrowLine>
       <ArrowHead
         variants={arrowHeadVariants}
         initial="initial"
-        animate="animate"
+        animate={animateArrow}
       />
     </ArrowContainer>
 

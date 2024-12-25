@@ -8,6 +8,8 @@ import LampCardDetails from "./LampCardDetails";
 import replay from "../images/replay.svg"
 import bigDoor from "../images/door-big.svg"
 import smallDoor from "../images/door-small.svg"
+import patchOn from "../images/patch-on.png"
+import patchOff from "../images/patch-off.png"
 
 
 
@@ -139,53 +141,95 @@ const SmallDoor = styled.img`
     height: 150px;
 `
 
+const Patch = styled.img`
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 5;
+    top: 220px;
+    right: 1115px;
 
-const YourHomeYourRules = () => {
-    const [animate, setAnimate] = useState(false);
-    const restart = useAnimationControls();
+`
+
+
+const YourHomeYourRules = ({setLampState}) => {
+    const [showCheckIcon_1, setShowCheckIcon_1] = useState(false);
+    const [showCheckIcon_2, setShowCheckIcon_2] = useState(false);
+    const [showReplay, setShowReplay] = useState(true);
+    const [patchState, setPatchState] = useState(false)
+
+
+    const smallDoorSide = useAnimationControls();
     const enlarge1 = useAnimationControls();
     const enlarge2 = useAnimationControls();
     const enlarge3 = useAnimationControls();
+    const animateArrow_1 = useAnimationControls();
+    const animateArrow_2 = useAnimationControls();
 
 
 
-    const handleRestart = async () => {
-        // Reset animations
-        restart.set("initial");
+
+    const handleAnimate = async () => {
+        // reset all animation to initial state
+        setShowReplay(false)
+        smallDoorSide.set("initial");
         enlarge1.set("initial");
         enlarge2.set("initial");
         enlarge3.set("initial");
-    
-        await restart.start("restart");
+        animateArrow_1.set("initial")
+        animateArrow_2.set("initial")
+        setShowCheckIcon_1(false)
+        setShowCheckIcon_2(false)
+        setLampState(false);
+        setPatchState(false)
+
+        await smallDoorSide.start("smallDoorSide");
+        setPatchState(true)
+
         await enlarge1.start("enlarge1");
         await enlarge1.start("initial");
 
-    
+        await animateArrow_1.start("animate")
+
         await enlarge2.start("enlarge2");
+        setShowCheckIcon_1(true)
         await enlarge2.start("initial");
+
+        await animateArrow_2.start("animate")
     
+        // setLampState(true);
+        setTimeout(() => {
+            setLampState(true);
+          }, 500);
         await enlarge3.start("enlarge3");
+        setShowCheckIcon_2(true)
         await enlarge3.start("initial");
+
+
+        setShowReplay(true)
       };
 
     return (
         <Container>
             <Left>
                 <LeftWrapper>
+
                     <SmallItem
                         src={smallDoor}
                         variants={{
                             initial:{ x:0, y:0},
-                            restart:{ x:-90, y:-40} 
+                            smallDoorSide:{ x:-90, y:-40} 
                         }}
                         initial="initial"
-                        animate={restart}
+                        animate={smallDoorSide}
                         transition={{duration: 1.5}}
                         ><SmallDoor src={smallDoor}/></SmallItem>
                     <BigItem >
+                        {patchState ? <Patch src={patchOn}/> : <Patch src={patchOff}/> }   
                         <BigDoor src={bigDoor}/>
-                    </BigItem>       
+                    </BigItem>
                 </LeftWrapper>
+
             </Left>
             <Right>
                 <CardsContainer>
@@ -198,52 +242,58 @@ const YourHomeYourRules = () => {
                             }}
                             initial="initial"
                             animate={enlarge1}
-                            transition={{ duration: 1}}
+                            transition={{ 
+                                duration: 0.8,
+                            }}
                         >
                             <DoorCardDetails/>
                         </Card>
                     </CardWrapper>
                     <ArrowSection>
-                        <Arrow/>
+                        <Arrow animateArrow={animateArrow_1}/>
                     </ArrowSection>
                     <CardWrapper>
                         <Text>And...</Text>
                         <Card
                             variants={{
                                 initial:{scale: 1},
-                                enlarge1:{scale: 1.06},
+                                enlarge2:{scale: 1.06},
                             }}
                             initial="initial"
                             animate={enlarge2}
-                            transition={{duration: 1}}
+                            transition={{
+                                duration: 0.8,
+                            }}
                         >
-                            <SunsetCardDetails/>
+                            <SunsetCardDetails showCheckIcon_1={showCheckIcon_1}/>
                         </Card>                    
                     </CardWrapper>
                     <ArrowSection>
-                        <Arrow/>
+                        <Arrow animateArrow={animateArrow_2}/>
                     </ArrowSection>
                     <CardWrapper>
                         <Text>Then...</Text>
                         <Card
                             variants={{
                                 initial:{scale: 1},
-                                enlarge1:{scale: 1.06},
+                                enlarge3:{scale: 1.06},
                             }}
                             initial="initial"
                             animate={enlarge3}
-                            transition={{duration: 1}}
+                            transition={{
+                                duration: 0.8,
+                            }}
                         >
-                            <LampCardDetails/>
+                            <LampCardDetails showCheckIcon_2={showCheckIcon_2}/>
                         </Card>                    
                     </CardWrapper>
                 </CardsContainer>
-                <ReplayContainer>
-                    <Replay onClick={handleRestart}>
+                {showReplay && <ReplayContainer>
+                    <Replay onClick={handleAnimate}>
                         <ReplayIcon src={replay}/>
                         <ReplayText> Replay</ReplayText>
                     </Replay>
-                </ReplayContainer>
+                </ReplayContainer>}
             </Right>
         </Container>
 

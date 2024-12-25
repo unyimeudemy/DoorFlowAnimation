@@ -98,7 +98,7 @@ filter: invert(55%) sepia(85%) saturate(300%) hue-rotate(90deg) brightness(120%)
 
 
 
-const SunsetCardDetails = () => {
+const SunsetCardDetails = ({showCheckIcon_1}) => {
 
     return(
         <Container>
@@ -113,11 +113,11 @@ const SunsetCardDetails = () => {
                 <Action>It's after sunset</Action>
 
             </Text>
-            <IconContainer>
+            {showCheckIcon_1 && <IconContainer>
                 <IconWrapper>
                     <Icon src={checkIcon}/>
                 </IconWrapper>
-            </IconContainer>
+            </IconContainer>}
        </Container>
     )
 
