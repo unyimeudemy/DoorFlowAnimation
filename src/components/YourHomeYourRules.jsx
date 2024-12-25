@@ -1,5 +1,5 @@
 import { useAnimationControls, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Arrow from "./Arrow";
 import DoorCardDetails from "./DoorCardDetails";
@@ -205,9 +205,12 @@ const YourHomeYourRules = ({setLampState}) => {
         setShowCheckIcon_2(true)
         await enlarge3.start("initial");
 
-
         setShowReplay(true)
       };
+
+      useEffect(() => {
+        handleAnimate();
+    }, []);
 
     return (
         <Container>
