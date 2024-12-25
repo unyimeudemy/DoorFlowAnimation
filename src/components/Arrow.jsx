@@ -2,18 +2,35 @@ import { useAnimationControls, motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
+// const ArrowContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//     height: 195px;
+// `;
+
 const ArrowContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-    height: 195px;
+  height: 97.5px;
+  margin-top: 22px;
 `;
+
+// const ArrowLine = styled.div`
+//   position: relative;
+//   width: 2px;
+//   height: 100px;
+//   background-color: #e6e6e6; /* Base color for unfilled area */
+//   overflow: hidden;
+// `;
 
 const ArrowLine = styled.div`
   position: relative;
   width: 2px;
-  height: 100px;
+  height: 70px;
   background-color: #e6e6e6; /* Base color for unfilled area */
   overflow: hidden;
 `;
@@ -30,6 +47,15 @@ const FillLine = styled(motion.div)`
   transform-origin: top; /* Ensures the fill grows from the top */
 `;
 
+
+// const ArrowHead = styled(motion.div)`
+//   width: 0;
+//   height: 0;
+//   border-left: 8px solid transparent;
+//   border-right: 8px solid transparent;
+//   border-top: 16px solid #e6e6e6; /* Base color for the arrowhead */
+//   margin-top: -1px;
+// `;
 
 const ArrowHead = styled(motion.div)`
   width: 0;

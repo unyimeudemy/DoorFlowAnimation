@@ -17,12 +17,21 @@ const Container = styled.div`
     justify-content: center;
 `
 
+// const Lamp = styled(motion.img)`
+//     width: 670px;
+//     height: 679px;
+//     position: absolute;
+//     top: 520px;
+//     left: 472px;
+//     z-index: 2;
+// `
+
 const Lamp = styled(motion.img)`
-    width: 670px;
-    height: 679px;
+    width: 510px;
+    height: 510px;
     position: absolute;
-    top: 520px;
-    left: 472px;
+    top: 450px;
+    right: 585px;
     z-index: 2;
 `
 

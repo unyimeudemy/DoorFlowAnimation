@@ -14,27 +14,63 @@ import patchOff from "../images/patch-off.png"
 
 
 
-const Container = styled.div`
-    width: 700px;
-    height: 800px;
-    display: flex;
+// const Container = styled.div`
+//     width: 500px;
+//     height: 600px;
+//     display: flex;
+//     background: red;
 
+// `
+
+const Container = styled.div`
+    width: 500px;
+    height: 500px;
+    display: flex;
 `
+
+
+
+// const Left = styled.div`
+//     width: 240px;
+//     height: 800px;
+// `
 
 const Left = styled.div`
-    width: 240px;
-    height: 800px;
+    width: 170px;
+    height: 500px;
 `
 
+// const Right = styled.div`
+//     width: 430px;
+//     height: 800px;
+//     margin-left: 50px;
+//     z-index: 4;
+// `
+
 const Right = styled.div`
-    width: 430px;
-    height: 800px;
-    margin-left: 50px;
+    width: 300px;
+    height: 550px;
+    margin-left: 25px;
     z-index: 4;
+    display: flex;
+    flex-direction: column;
 `
+
+// const SmallItem = styled(motion.div)`
+//     width: 50px;
+//     height: 100px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     position: absolute;
+//     margin-top: -22px;
+//     margin-left: -30px;
+//     z-index: 2;
+// `
+
 const SmallItem = styled(motion.div)`
-    width: 50px;
-    height: 100px;
+    width: 35px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,9 +79,20 @@ const SmallItem = styled(motion.div)`
     margin-left: -30px;
     z-index: 2;
 `
+
+// const BigItem = styled.div`
+//     width: 100px;
+//     height: 150px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     z-index: 4;
+
+// `
+
 const BigItem = styled.div`
-    width: 100px;
-    height: 150px;
+    width: 70px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,101 +100,200 @@ const BigItem = styled.div`
 
 `
 
+// const LeftWrapper = styled.div`
+//     display: flex;
+//     margin-top: 53px;
+//     margin-left: 150px;
+// `
+
 const LeftWrapper = styled.div`
  
     display: flex;
-    margin-top: 53px;
-    margin-left: 150px;
+    margin-top: 35px;
+    margin-left: 100px;
 `
+
+// const CardsContainer = styled.div`
+//     width: 400px;
+//     height: 650px;
+// `
 
 const CardsContainer = styled.div`
-    width: 400px;
-    height: 650px;
+    width: 300px;
+    height: 550px;
 `
+
+// const CardWrapper = styled.div`
+//     width: 400px;
+//     height: 120px;
+// `
 
 const CardWrapper = styled.div`
-    width: 400px;
-    height: 120px;
+    width: 200px;
+    height: 60px;
 `
 
+// const ArrowSection = styled.div`
+//     width: 400px;
+//     height: 125px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-top: 15px;
+// `
+
 const ArrowSection = styled.div`
-    width: 400px;
-    height: 125px;
+    width: 300px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 10px;
 `
+
+// const Text = styled.div`
+//     font-family: Roboto;
+//     font-weight: bold;
+//     font-size: 23px;
+//     color: #333333;
+//     margin-bottom: 15px;
+// `
 
 const Text = styled.div`
     font-family: Roboto;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 18px;
     color: #333333;
-    margin-bottom: 15px;
+    margin-bottom: 7.5px;
 `
 
 
+
+
+// const Card = styled(motion.div)`
+//     width: 400px;
+//     height: 80px;
+//     background: #FFFFFF;
+//     margin-top: 5px;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+// `
 
 const Card = styled(motion.div)`
-    width: 400px;
-    height: 80px;
+    width: 300px;
+    height: 60px;
     background: #FFFFFF;
-    margin-top: 5px;
-    border-radius: 12px;
+    margin-top: 2.5px;
+    border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
 
 `
 
+// const ReplayContainer = styled.div`
+//     width: 400px;
+//     height: 60px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-top: 30px;
+// `
+
 const ReplayContainer = styled.div`
-    width: 400px;
-    height: 60px;
+    width: 300px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
 `
+
+// const Replay = styled.div`
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 8px;
+
+//     &:hover{
+//         cursor: pointer;
+//     }
+
+// `
 
 const Replay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
 
     &:hover{
         cursor: pointer;
     }
 
 `
+
+// const ReplayIcon = styled.img`
+//     width: 20px;
+//     height: 20px;
+// `
+
 const ReplayIcon = styled.img`
     width: 20px;
     height: 20px;
 `
 
+// const ReplayText = styled.div`
+//     font-family: Roboto;
+//     font-weight: regular;
+//     font-size: 20px;
+//     color: #666666;
+// `
+
 const ReplayText = styled.div`
     font-family: Roboto;
     font-weight: regular;
-    font-size: 20px;
+    font-size: 15px;
     color: #666666;
 `
 
+// const BigDoor = styled.img`
+//     width: 120px;
+//     height: 230px;
+// `
+
 const BigDoor = styled.img`
-    width: 120px;
-    height: 230px;
+    width: 100px;
+    height: 140px;
 `
+
+// const SmallDoor = styled.img`
+//     width: 80px;
+//     height: 150px;
+// `
 
 const SmallDoor = styled.img`
-    width: 80px;
-    height: 150px;
+    width: 60px;
+    height: 100px;
 `
 
+// const Patch = styled.img`
+//     width: 20px;
+//     height: 20px;
+//     position: absolute;
+//     z-index: 5;
+//     top: 220px;
+//     right: 1115px;
+
+// `
+
 const Patch = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     position: absolute;
     z-index: 5;
-    top: 220px;
-    right: 1115px;
+    top: 205px;
+    right: 841px;
 
 `
 
@@ -216,19 +362,19 @@ const YourHomeYourRules = ({setLampState}) => {
         <Container>
             <Left>
                 <LeftWrapper>
-
                     <SmallItem
                         src={smallDoor}
                         variants={{
                             initial:{ x:0, y:0},
-                            smallDoorSide:{ x:-90, y:-40} 
+                            smallDoorSide:{ x:-67, y:-14} 
                         }}
                         initial="initial"
                         animate={smallDoorSide}
                         transition={{duration: 1.5}}
                         ><SmallDoor src={smallDoor}/></SmallItem>
                     <BigItem >
-                        {patchState ? <Patch src={patchOn}/> : <Patch src={patchOff}/> }   
+                        {patchState ? <Patch src={patchOn}/> : <Patch src={patchOff}/> }  
+                        {/* <Patch /> */}
                         <BigDoor src={bigDoor}/>
                     </BigItem>
                 </LeftWrapper>
